@@ -1,0 +1,15 @@
+h1{
+    font: 20px sans-serif;
+}
+p{
+    font: 14px sans-serif;
+}
+text {
+      font: 10px sans-serif;
+  }
+  a[title]:hover::after {
+  content: attr(title);
+  color: black;
+  background-color: lightgrey;
+
+}

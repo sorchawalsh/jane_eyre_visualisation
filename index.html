@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1>Length of each sentence by chapter of Jane Eyre</h1>
+<p>Jane Eyre is a novel which, in the Gothic tradition, is known for being gloomy
+However, Jane and the other characters in the novel do end up knowing several
+    moments of true happiness. The aim of this project was to visualise these.</p>
+<p>This graph is comprised of 38 smaller graphs, with the 0th one being the prologue.
+Each line represents a sentence, and its length is the number of words in the sentence.
+The colour of the line is based on the sentiment, obtained via sentiment analysis using
+    TextBlob.</p>
+   <p> Sentiment analysis, while a flawed tool in individual cases,
+allows for an overview of the shape of the novel, mood-wise, to be obtained.
+The darker areas represent areas with lighter mood, whereas the lighter areas represent
+   those with a more negative sentiment score.</p>
+<p>Mouse over each chapter to see the most positive and negative sentence in each,
+with their associated scores.</p>
+<div id="sentences_per_chapter"></div>
+</body>
+</html>
