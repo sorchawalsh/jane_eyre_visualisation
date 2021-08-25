@@ -1,5 +1,6 @@
 # Jane Eyre visualisation
 
+This project is available [here](https://sorchawalsh.github.io/jane_eyre_visualisation/)
 ## Data
 The raw data for this project was obtained from the Gutenberg project. It was then processed using Python. The main modules I used included TextBlob (a natural language processing utility) and re, the regular expression module for Python. CSV was also used to write the final file.
 
