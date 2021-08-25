@@ -82,7 +82,7 @@ function delay (ms) {
 }
 
 async function test () {
-    for (let i=0;i<38;i++){
+    for (let i=0;i<39;i++){
         await delay(100);
         draw_sentence_graph(i)
     }
