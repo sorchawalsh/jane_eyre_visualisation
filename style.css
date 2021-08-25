@@ -6,10 +6,14 @@ p{
 }
 text {
       font: 10px sans-serif;
+    text-color: white;
+    font-weight: bolder;
   }
   a[title]:hover::after {
   content: attr(title);
   color: black;
   background-color: lightgrey;
-
+}
+body{
+    background-color: white;
 }

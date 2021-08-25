@@ -23,11 +23,11 @@ draw_sentence_graph = function(chapter){
         var colorScale = d3.scaleSequential(d3.interpolateBlues)
             .domain([-1,1])
         const canvas = d3.select("div").append("svg")
-            .attr("width", 100 + margin.right + margin.left)
+            .attr("width", 1000 + margin.right + margin.left)
             .attr("height", 100 + margin.top + margin.bottom)
-        const x = d3.scaleBand()
-            .domain(data.map(d => d.sentence))
-            .range([0,100]);
+        const x= d3.scaleBand()
+        .domain(data.map(function(d){ return d.sentence}))
+        .range([0, 1000]);
         const y = d3.scaleLinear()
             .domain([0,d3.max(data, d => d.words)])
             .range([50,0]);
@@ -41,28 +41,33 @@ draw_sentence_graph = function(chapter){
         .attr("height", d => y(d.words))
          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
          .attr("fill", function(d){
-             return colorScale(d.polarity)})
+             if(!d.polarity.startsWith("[")){
+                 return colorScale(parseFloat(d.polarity,10))
+                }
+             else{
+                 return "white"
+             }
+             })
 canvas.append('title')
   .text(function(d) { return "Most positive: " + most_positive +  "\nValue: " + max_polarity[0]+"\n\n"+
                              "Most negative: " + most_negative + "\nValue: " + max_polarity[1]; })
-// ajouter l'axe des X
-canvas.append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + 100+")")
+
 // ajouter l'axe des Y
 canvas.append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .call(d3.axisLeft(y)
-        .ticks(3));
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .call(d3.axisLeft(y))
 canvas.append("g")
       .attr("transform",
             "translate(" + (100/2) + " ," +
                            (100 + margin.top + 20) + ")")
       .text("sentences");
+
 canvas.append("text")
     .style("fill", "rgb(12, 8, 87)")
     .attr("dy", "50px")
     .attr("dx", "1em")
     .attr("text-anchor", "middle")
+    .attr("color", "white")
     .text(chapter);
     })
 
